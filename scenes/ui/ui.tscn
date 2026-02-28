@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://c7msbsbdkmau1"]
+
+[ext_resource type="Script" uid="uid://l7u3j6sr0k8s" path="res://scenes/ui/ui.gd" id="1_u7n8c"]
+[ext_resource type="FontFile" uid="uid://d370phyelf2v8" path="res://Assets/font/font.otf" id="2_f5cxw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f5cxw"]
+bg_color = Color(0.99552435, 5.7997554e-06, 1.540184e-06, 1)
+
+[node name="UI" type="CanvasLayer" unique_id=501222582]
+script = ExtResource("1_u7n8c")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=977696333]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HealthContainer" type="HBoxContainer" parent="MarginContainer" unique_id=382766269]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="WaveCounter" type="Label" parent="MarginContainer" unique_id=1750297589]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_f5cxw")
+theme_override_font_sizes/font_size = 42
+text = "Wave 0 of 2"
+
+[node name="BossHB" type="ProgressBar" parent="MarginContainer" unique_id=404538013]
+visible = false
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/fill = SubResource("StyleBoxFlat_f5cxw")
+show_percentage = false
+
+[node name="BossName" type="Label" parent="MarginContainer" unique_id=1844041525]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("2_f5cxw")
+text = "VLAD"

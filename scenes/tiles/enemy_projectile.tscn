@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://d0m0ixoukivdh"]
+
+[ext_resource type="Texture2D" uid="uid://bnw8m66nnvml1" path="res://Assets/Enemies/EnemyProjectiles/bandage.png" id="1_b1oq1"]
+[ext_resource type="Script" uid="uid://dgpagkvjm0fag" path="res://scenes/tiles/enemy_projectile.gd" id="1_dwkqe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwkqe"]
+size = Vector2(72, 28)
+
+[node name="EnemyProjectile" type="Area2D" unique_id=86669285]
+collision_layer = 8
+collision_mask = 5
+script = ExtResource("1_dwkqe")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=127393376]
+scale = Vector2(3, 3)
+texture = ExtResource("1_b1oq1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1549973798]
+shape = SubResource("RectangleShape2D_dwkqe")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1450333842]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

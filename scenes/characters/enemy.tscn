@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://c12l8u24mldaw"]
+
+[ext_resource type="Texture2D" uid="uid://bctpeupeq763a" path="res://Assets/Enemies/Devil/DevilIdle.png" id="1_21x0f"]
+[ext_resource type="Script" uid="uid://bpgeo2gw0kiku" path="res://scenes/characters/enemy.gd" id="1_hvulg"]
+[ext_resource type="Texture2D" uid="uid://b2uelg3fanb7" path="res://Assets/Enemies/Devil/DevilShoot.png" id="2_jgk6k"]
+[ext_resource type="Texture2D" uid="uid://cpqqankvfcfpb" path="res://Assets/Enemies/Mummy/MummyIdle.png" id="3_3k4es"]
+[ext_resource type="Texture2D" uid="uid://dlc65t857t88g" path="res://Assets/Enemies/SmokeFX/FX001_01.png" id="3_tjfok"]
+[ext_resource type="Texture2D" uid="uid://cmb3ayrwdvv1k" path="res://Assets/Enemies/SmokeFX/FX001_02.png" id="4_ovt1e"]
+[ext_resource type="Texture2D" uid="uid://bor84gso6c3ed" path="res://Assets/Enemies/Mummy/MummyShooting.png" id="4_x5khh"]
+[ext_resource type="Texture2D" uid="uid://c5di3uhs7qu2a" path="res://Assets/Enemies/SmokeFX/FX001_03.png" id="5_hvulg"]
+[ext_resource type="Texture2D" uid="uid://ddi0prjmcnlxx" path="res://Assets/Enemies/SmokeFX/FX001_04.png" id="6_yj4uo"]
+[ext_resource type="Texture2D" uid="uid://cktfakakkaia3" path="res://Assets/Enemies/SmokeFX/FX001_05.png" id="7_dtiis"]
+[ext_resource type="Texture2D" uid="uid://cximiq1agap3w" path="res://Assets/Enemies/Skeleton/SkeletonIdle.png" id="10_174rk"]
+[ext_resource type="Texture2D" uid="uid://cu2wocwlgwecx" path="res://Assets/Enemies/Skeleton/SkeletonShooting.png" id="11_7ktny"]
+[ext_resource type="Script" uid="uid://yyjaqeo5skl5" path="res://scenes/characters/random_timer.gd" id="12_rji51"]
+[ext_resource type="Script" uid="uid://chkfcx662ip0b" path="res://scenes/characters/enemy_shooting_system.gd" id="13_yj4uo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0ag5d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_21x0f")
+}],
+"loop": true,
+"name": &"devil_default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jgk6k")
+}],
+"loop": false,
+"name": &"devil_shoot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_tjfok")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ovt1e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_hvulg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_yj4uo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_dtiis")
+}],
+"loop": false,
+"name": &"die",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_3k4es")
+}],
+"loop": true,
+"name": &"mummy_default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_x5khh")
+}],
+"loop": false,
+"name": &"mummy_shoot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_174rk")
+}],
+"loop": true,
+"name": &"skeleton_default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_7ktny")
+}],
+"loop": false,
+"name": &"skeleton_shoot",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7bjuq"]
+size = Vector2(64, 147)
+
+[node name="Enemy" type="Area2D" unique_id=1711258944]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_hvulg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1985196570]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_0ag5d")
+animation = &"skeleton_default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1042492802]
+position = Vector2(-8, -2.5)
+shape = SubResource("RectangleShape2D_7bjuq")
+
+[node name="ShootingSystem" type="Marker2D" parent="." unique_id=841875901]
+position = Vector2(-99, 0)
+script = ExtResource("13_yj4uo")
+
+[node name="Timer" type="Timer" parent="ShootingSystem" unique_id=197692144]
+one_shot = true
+script = ExtResource("12_rji51")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="ShootingSystem/Timer" to="ShootingSystem" method="_on_timer_timeout"]

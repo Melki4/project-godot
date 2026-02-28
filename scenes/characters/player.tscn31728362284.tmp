@@ -1,0 +1,170 @@
+[gd_scene format=3 uid="uid://ccgm1nc5tqj1d"]
+
+[ext_resource type="Texture2D" uid="uid://beheqyio3208x" path="res://Assets/Player/Horror game player animations.png" id="1_rp718"]
+[ext_resource type="Script" uid="uid://dg1ox1gofwe5f" path="res://scenes/characters/player.gd" id="1_yewv4"]
+[ext_resource type="Script" uid="uid://bgtoustwrks0i" path="res://scenes/characters/shooting_system.gd" id="3_76oj4"]
+[ext_resource type="Script" uid="uid://dwhcbaq52jrsr" path="res://scenes/characters/health_system.gd" id="4_dyp2m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yewv4"]
+atlas = ExtResource("1_rp718")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76oj4"]
+atlas = ExtResource("1_rp718")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyp2m"]
+atlas = ExtResource("1_rp718")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_atpat"]
+atlas = ExtResource("1_rp718")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqtwu"]
+atlas = ExtResource("1_rp718")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6eyoc"]
+atlas = ExtResource("1_rp718")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eojnx"]
+atlas = ExtResource("1_rp718")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgnko"]
+atlas = ExtResource("1_rp718")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vyk4"]
+atlas = ExtResource("1_rp718")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2l4js"]
+atlas = ExtResource("1_rp718")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jk2m4"]
+atlas = ExtResource("1_rp718")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhtjm"]
+atlas = ExtResource("1_rp718")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k4v7y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yewv4")
+}],
+"loop": true,
+"name": &"frankie_default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76oj4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dyp2m")
+}],
+"loop": false,
+"name": &"frankie_shooting",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_atpat")
+}],
+"loop": true,
+"name": &"hunter_default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqtwu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6eyoc")
+}],
+"loop": false,
+"name": &"hunter_shooting",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eojnx")
+}],
+"loop": true,
+"name": &"witch_default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qgnko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vyk4")
+}],
+"loop": false,
+"name": &"witch_shouting",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2l4js")
+}],
+"loop": true,
+"name": &"wolfie_default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jk2m4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhtjm")
+}],
+"loop": false,
+"name": &"wolfie_shooting",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xrqxk"]
+radius = 5.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dyp2m"]
+radius = 15.0
+height = 90.0
+
+[node name="Player" type="CharacterBody2D" unique_id=1972268172]
+collision_mask = 8
+script = ExtResource("1_yewv4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=958224699]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_k4v7y")
+animation = &"frankie_shooting"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1329363046]
+position = Vector2(-10, 1)
+scale = Vector2(3, 3)
+shape = SubResource("CapsuleShape2D_xrqxk")
+
+[node name="ShootingSystem" type="Node2D" parent="." unique_id=1009041770]
+position = Vector2(30, 3)
+script = ExtResource("3_76oj4")
+
+[node name="HealthSystem" type="Node" parent="." unique_id=1192073048]
+script = ExtResource("4_dyp2m")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2073536595]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1836625278]
+position = Vector2(-10, 1)
+shape = SubResource("CapsuleShape2D_dyp2m")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="ShootingSystem" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

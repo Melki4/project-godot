@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://nbbtwmbbfeo6"]
+
+[ext_resource type="Script" uid="uid://6afxwcudqg1w" path="res://scenes/ui/main_menu.gd" id="1_4xg86"]
+[ext_resource type="Texture2D" uid="uid://bloxp2shvndpx" path="res://Assets/Backgrounds/Skybox Castle outside.png" id="1_fsom3"]
+[ext_resource type="Texture2D" uid="uid://seuol3n7jldw" path="res://Assets/UIElements/Select.png" id="3_thkx5"]
+[ext_resource type="FontFile" uid="uid://d370phyelf2v8" path="res://Assets/font/font.otf" id="4_x2yjq"]
+[ext_resource type="Texture2D" uid="uid://dqfqcgvyrrr2s" path="res://Assets/UIElements/PlayerPortaits/Frankie.png" id="5_lqpn7"]
+[ext_resource type="Texture2D" uid="uid://ptclhiyr1s31" path="res://Assets/UIElements/PlayerPortaits/Wolfie.png" id="6_qel0l"]
+[ext_resource type="Texture2D" uid="uid://jiggefrmbvvg" path="res://Assets/UIElements/PlayerPortaits/Witch.png" id="7_rrgl4"]
+[ext_resource type="Texture2D" uid="uid://bcp1jo2afppjg" path="res://Assets/UIElements/PlayerPortaits/Hunter.png" id="8_dn3lk"]
+
+[node name="MainMenu" type="CanvasLayer" unique_id=1151006674]
+script = ExtResource("1_4xg86")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1595455730]
+modulate = Color(1, 0.11372549, 1, 0.6666667)
+custom_minimum_size = Vector2(600, 0)
+offset_right = 600.0
+offset_bottom = 240.0
+scale = Vector2(2.75, 2.75)
+texture = ExtResource("1_fsom3")
+stretch_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="Pointer" type="TextureRect" parent="." unique_id=1970872044]
+custom_minimum_size = Vector2(24, 20)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.0
+offset_top = -47.0
+offset_right = -47.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_thkx5")
+stretch_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2045169414]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 64
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1310752422]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1215319605]
+modulate = Color(1, 0.23529412, 0.36862746, 1)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_x2yjq")
+theme_override_font_sizes/font_size = 60
+text = "Halloween Shouter"
+
+[node name="ChooseFighterLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1102870297]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_x2yjq")
+theme_override_font_sizes/font_size = 48
+text = "CHOOUSE YOUR FIGHTER:"
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer" unique_id=1731146964]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CenterContainer" unique_id=413269594]
+layout_mode = 2
+
+[node name="FrankieTexture" type="TextureRect" parent="MarginContainer/CenterContainer/VBoxContainer" unique_id=372688840]
+custom_minimum_size = Vector2(36, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("5_lqpn7")
+
+[node name="WolfieTexture" type="TextureRect" parent="MarginContainer/CenterContainer/VBoxContainer" unique_id=1813180002]
+custom_minimum_size = Vector2(44, 42)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("6_qel0l")
+
+[node name="WitchTexture" type="TextureRect" parent="MarginContainer/CenterContainer/VBoxContainer" unique_id=2094594152]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("7_rrgl4")
+
+[node name="HunerTexture" type="TextureRect" parent="MarginContainer/CenterContainer/VBoxContainer" unique_id=197816792]
+custom_minimum_size = Vector2(44, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("8_dn3lk")
+
+[node name="SelectorPositions" type="Node" parent="." unique_id=617631683]
+
+[node name="FrankiePosition" type="Marker2D" parent="SelectorPositions" unique_id=952688253]
+position = Vector2(514, 281)
+
+[node name="WolfiePosition" type="Marker2D" parent="SelectorPositions" unique_id=997823889]
+position = Vector2(514, 332)
+
+[node name="WitchPosition" type="Marker2D" parent="SelectorPositions" unique_id=1886114068]
+position = Vector2(514, 381)
+
+[node name="HunterPosition" type="Marker2D" parent="SelectorPositions" unique_id=1062973213]
+position = Vector2(514, 436)

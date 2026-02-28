@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://blbddtyqepm5j"]
+
+[ext_resource type="Script" uid="uid://dq43b4aekt2rn" path="res://scenes/tiles/projectile.gd" id="1_afnsd"]
+[ext_resource type="Texture2D" uid="uid://b73dnxj867box" path="res://Assets/Player/wolfie_projectile.png" id="2_xho8t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mudhb"]
+size = Vector2(40, 76)
+
+[node name="Projectile" type="Area2D" unique_id=161779051]
+collision_layer = 4
+collision_mask = 10
+script = ExtResource("1_afnsd")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2007394505]
+scale = Vector2(3, 3)
+texture = ExtResource("2_xho8t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=899948831]
+position = Vector2(7, 2)
+shape = SubResource("RectangleShape2D_mudhb")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1516983030]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

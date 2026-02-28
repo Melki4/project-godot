@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://c628vab5a4rqv"]
+
+[ext_resource type="Shader" uid="uid://8mr3e82358hn" path="res://scenes/shaders/level_selection.gdshader" id="1_40ma8"]
+
+[resource]
+shader = ExtResource("1_40ma8")

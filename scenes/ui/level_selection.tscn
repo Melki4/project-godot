@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://blausl41srl2x"]
+
+[ext_resource type="Script" uid="uid://bvejfhsyr0ggq" path="res://scenes/ui/level_selection.gd" id="1_hg3rx"]
+[ext_resource type="Texture2D" uid="uid://bloxp2shvndpx" path="res://Assets/Backgrounds/Skybox Castle outside.png" id="1_r4y5g"]
+[ext_resource type="FontFile" uid="uid://d370phyelf2v8" path="res://Assets/font/font.otf" id="2_yssoo"]
+[ext_resource type="Material" uid="uid://beo6imexv8qvi" path="res://scenes/material/level_selection.material" id="3_yssoo"]
+[ext_resource type="Theme" uid="uid://bfqn6vv1th6r" path="res://scenes/themes/level_selection.theme" id="4_iwede"]
+[ext_resource type="Texture2D" uid="uid://c7rnp72rm6uhu" path="res://Assets/Backgrounds/Skybox Forest.png" id="4_n7r7k"]
+[ext_resource type="Texture2D" uid="uid://cqhetthyr1dki" path="res://Assets/Backgrounds/Skybox Pyramid outside.png" id="5_iwede"]
+
+[node name="LevelSelection" type="CanvasLayer" unique_id=1936120558]
+script = ExtResource("1_hg3rx")
+
+[node name="Background" type="TextureRect" parent="." unique_id=911951551]
+modulate = Color(1, 0.11372549, 1, 0.6666667)
+custom_minimum_size = Vector2(600, 0)
+offset_right = 600.0
+offset_bottom = 240.0
+scale = Vector2(2.75, 2.75)
+texture = ExtResource("1_r4y5g")
+stretch_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1270670645]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=837747758]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1569173615]
+modulate = Color(1, 0.23529412, 0.36862746, 1)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_yssoo")
+theme_override_font_sizes/font_size = 60
+text = "Halloween Shouter"
+
+[node name="ChooseFighterLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1348890878]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_yssoo")
+theme_override_font_sizes/font_size = 48
+text = "CHOOUSE YOUR LEVEL:"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=2055525224]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_top = 128
+theme_override_constants/margin_bottom = 32
+
+[node name="LevelsContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=1819090342]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 32
+
+[node name="Castle" type="PanelContainer" parent="MarginContainer/VBoxContainer/MarginContainer/LevelsContainer" unique_id=1448301886]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("4_iwede")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer/LevelsContainer/Castle" unique_id=689162430]
+material = ExtResource("3_yssoo")
+layout_mode = 2
+texture = ExtResource("1_r4y5g")
+
+[node name="LevelTitle" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/LevelsContainer/Castle" unique_id=838853923]
+visible = false
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("2_yssoo")
+theme_override_font_sizes/font_size = 20
+text = "CASTLE"
+horizontal_alignment = 1
+
+[node name="Forest" type="PanelContainer" parent="MarginContainer/VBoxContainer/MarginContainer/LevelsContainer" unique_id=1659063433]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("4_iwede")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer/LevelsContainer/Forest" unique_id=556343009]
+material = ExtResource("3_yssoo")
+layout_mode = 2
+texture = ExtResource("4_n7r7k")
+
+[node name="LevelTitle" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/LevelsContainer/Forest" unique_id=137865701]
+visible = false
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("2_yssoo")
+theme_override_font_sizes/font_size = 20
+text = "FOREST"
+horizontal_alignment = 1
+
+[node name="Pyramids" type="PanelContainer" parent="MarginContainer/VBoxContainer/MarginContainer/LevelsContainer" unique_id=823535216]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("4_iwede")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer/LevelsContainer/Pyramids" unique_id=2052817950]
+material = ExtResource("3_yssoo")
+layout_mode = 2
+texture = ExtResource("5_iwede")
+
+[node name="LevelTitle" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/LevelsContainer/Pyramids" unique_id=1332395058]
+visible = false
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("2_yssoo")
+theme_override_font_sizes/font_size = 20
+text = "PYRAMIDS"
+horizontal_alignment = 1

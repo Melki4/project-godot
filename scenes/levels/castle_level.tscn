@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://d0hlgxx1jrauf"]
+
+[ext_resource type="PackedScene" uid="uid://ijsgbthfjqh2" path="res://scenes/ui/scrolling_background.tscn" id="1_yy1yf"]
+[ext_resource type="PackedScene" uid="uid://ccgm1nc5tqj1d" path="res://scenes/characters/player.tscn" id="2_2us7k"]
+[ext_resource type="PackedScene" uid="uid://c7msbsbdkmau1" path="res://scenes/ui/ui.tscn" id="3_3ec2h"]
+[ext_resource type="Script" uid="uid://doxujnit1a0i0" path="res://scenes/levels/level_manager.gd" id="4_oeoca"]
+[ext_resource type="PackedScene" uid="uid://dwy2mb6mgb7yv" path="res://scenes/wave_spawner.tscn" id="5_34h5v"]
+[ext_resource type="Script" uid="uid://ck7vkpuya3hkc" path="res://scenes/levels/wave_1.gd" id="6_6q7bl"]
+[ext_resource type="Resource" uid="uid://xoigkrotauxj" path="res://resources/devil_enemy_config.tres" id="7_flqjt"]
+[ext_resource type="Resource" uid="uid://bxfr5kbruh4lo" path="res://resources/mummy_enemy_config.tres" id="8_3wclv"]
+[ext_resource type="Resource" uid="uid://ddbmeccchj7gl" path="res://resources/skeleton_enemy_config.tres" id="9_n7jsi"]
+
+[node name="CastleLevel" type="Node" unique_id=1525828569]
+
+[node name="ScrollingBackground" parent="." unique_id=1850770961 instance=ExtResource("1_yy1yf")]
+
+[node name="Player" parent="." unique_id=751209383 instance=ExtResource("2_2us7k")]
+position = Vector2(106, 373)
+
+[node name="UI" parent="." unique_id=501222582 instance=ExtResource("3_3ec2h")]
+
+[node name="LevelManager" type="Node" parent="." unique_id=488619527]
+script = ExtResource("4_oeoca")
+
+[node name="WaveSpawner" parent="." unique_id=1563419909 node_paths=PackedStringArray("enemy_movement_points") instance=ExtResource("5_34h5v")]
+position = Vector2(1047, 321)
+enemy_movement_points = [NodePath("../EnemyMovementPoints/TopLeft"), NodePath("../EnemyMovementPoints/TopRight"), NodePath("../EnemyMovementPoints/MidLeft"), NodePath("../EnemyMovementPoints/MidRight"), NodePath("../EnemyMovementPoints/BotLeft"), NodePath("../EnemyMovementPoints/BotRight")]
+time_between_waves = 3
+
+[node name="Wave1" type="Node" parent="WaveSpawner" unique_id=985331635]
+script = ExtResource("6_6q7bl")
+devil_config = ExtResource("7_flqjt")
+mummy_config = ExtResource("8_3wclv")
+skeleton_config = ExtResource("9_n7jsi")
+devils_count = 1
+mummy_count = 0
+skeleton_count = 0
+
+[node name="Wave2" type="Node" parent="WaveSpawner" unique_id=1208194025]
+script = ExtResource("6_6q7bl")
+devil_config = ExtResource("7_flqjt")
+mummy_config = ExtResource("8_3wclv")
+skeleton_config = ExtResource("9_n7jsi")
+devils_count = 0
+mummy_count = 1
+skeleton_count = 0
+
+[node name="EnemyMovementPoints" type="Node" parent="." unique_id=1429254295]
+
+[node name="TopLeft" type="Marker2D" parent="EnemyMovementPoints" unique_id=571811273]
+position = Vector2(675, 94)
+
+[node name="TopRight" type="Marker2D" parent="EnemyMovementPoints" unique_id=1589023490]
+position = Vector2(1015, 94)
+
+[node name="MidLeft" type="Marker2D" parent="EnemyMovementPoints" unique_id=245624441]
+position = Vector2(729, 347)
+
+[node name="MidRight" type="Marker2D" parent="EnemyMovementPoints" unique_id=95530045]
+position = Vector2(1021, 365)
+
+[node name="BotLeft" type="Marker2D" parent="EnemyMovementPoints" unique_id=1572002166]
+position = Vector2(681, 648)
+
+[node name="BotRight" type="Marker2D" parent="EnemyMovementPoints" unique_id=43623179]
+position = Vector2(982, 672)
