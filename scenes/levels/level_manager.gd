@@ -12,6 +12,7 @@ func _ready() -> void:
 	player.player_damaged.connect(on_player_damaged)
 	wave_spawner.starting_wave.connect(ui.on_wave_started)
 	wave_spawner.waves_finished.connect(on_waves_finished)
+	player.player_died.connect(ui.on_player_died)
 	
 func on_waves_finished():
 	var vlad_boss = VLAD_BOSS.instantiate()

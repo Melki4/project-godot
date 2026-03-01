@@ -7,6 +7,7 @@
 [ext_resource type="Theme" uid="uid://bfqn6vv1th6r" path="res://scenes/themes/level_selection.theme" id="4_iwede"]
 [ext_resource type="Texture2D" uid="uid://c7rnp72rm6uhu" path="res://Assets/Backgrounds/Skybox Forest.png" id="4_n7r7k"]
 [ext_resource type="Texture2D" uid="uid://cqhetthyr1dki" path="res://Assets/Backgrounds/Skybox Pyramid outside.png" id="5_iwede"]
+[ext_resource type="AudioStream" uid="uid://bjdwekoi0haqm" path="res://Assets/music/horror-music.mp3" id="8_iwede"]
 
 [node name="LevelSelection" type="CanvasLayer" unique_id=1936120558]
 script = ExtResource("1_hg3rx")
@@ -125,3 +126,7 @@ theme_override_fonts/font = ExtResource("2_yssoo")
 theme_override_font_sizes/font_size = 20
 text = "PYRAMIDS"
 horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1545379067]
+stream = ExtResource("8_iwede")
+autoplay = true

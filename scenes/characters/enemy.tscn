@@ -111,6 +111,8 @@ script = ExtResource("13_yj4uo")
 one_shot = true
 script = ExtResource("12_rji51")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1615684132]
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="ShootingSystem/Timer" to="ShootingSystem" method="_on_timer_timeout"]

@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="EnemyConfig" format=3 uid="uid://ddbmeccchj7gl"]
 
+[ext_resource type="Shape2D" uid="uid://ccrmtyipfnap2" path="res://resources/CollisionShapes/skeleton_collision_shape.tres" id="1_ghjrq"]
 [ext_resource type="Shape2D" uid="uid://36pg4wj5136c" path="res://resources/CollisionShapes/skeleton_projectile_collision_shape.tres" id="2_8se6f"]
 [ext_resource type="Texture2D" uid="uid://dh0pcb48fnx1a" path="res://Assets/Enemies/EnemyProjectiles/bone.png" id="3_v2ktm"]
 [ext_resource type="Script" uid="uid://d20dao4r3jkuf" path="res://scenes/characters/enemy_config.gd" id="4_jrgtu"]
@@ -9,3 +10,4 @@ script = ExtResource("4_jrgtu")
 projectile_collision_shape = ExtResource("2_8se6f")
 projectile_texture = ExtResource("3_v2ktm")
 enemy_name = "skeleton"
+enemy_collision_shape = ExtResource("1_ghjrq")

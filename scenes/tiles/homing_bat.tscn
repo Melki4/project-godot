@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://uttb8lc647ab"]
+
+[ext_resource type="Script" uid="uid://diqq7mt1r8tq4" path="res://scenes/tiles/homing_bat.gd" id="1_w5kdp"]
+[ext_resource type="Texture2D" uid="uid://dbwvy5wabgiu4" path="res://Assets/Enemies/EnemyProjectiles/bat.png" id="2_6owc6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ld8tq"]
+size = Vector2(20, 60)
+
+[node name="HomingBat" type="Area2D" unique_id=620028568]
+collision_layer = 8
+script = ExtResource("1_w5kdp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1151735017]
+scale = Vector2(3, 3)
+texture = ExtResource("2_6owc6")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=2013527066]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=11721385]
+shape = SubResource("RectangleShape2D_ld8tq")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

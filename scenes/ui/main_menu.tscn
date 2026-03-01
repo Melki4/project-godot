@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ptclhiyr1s31" path="res://Assets/UIElements/PlayerPortaits/Wolfie.png" id="6_qel0l"]
 [ext_resource type="Texture2D" uid="uid://jiggefrmbvvg" path="res://Assets/UIElements/PlayerPortaits/Witch.png" id="7_rrgl4"]
 [ext_resource type="Texture2D" uid="uid://bcp1jo2afppjg" path="res://Assets/UIElements/PlayerPortaits/Hunter.png" id="8_dn3lk"]
+[ext_resource type="AudioStream" uid="uid://bjdwekoi0haqm" path="res://Assets/music/horror-music.mp3" id="9_q85j6"]
 
 [node name="MainMenu" type="CanvasLayer" unique_id=1151006674]
 script = ExtResource("1_4xg86")
@@ -115,3 +116,7 @@ position = Vector2(514, 381)
 
 [node name="HunterPosition" type="Marker2D" parent="SelectorPositions" unique_id=1062973213]
 position = Vector2(514, 436)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1843114223]
+stream = ExtResource("9_q85j6")
+autoplay = true

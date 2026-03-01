@@ -10,7 +10,8 @@ enum ProjectilePattern {
 	SIN,
 	ACOS,
 	ACOSH,
-	TANH
+	TANH,
+	VLAD
 }
 
 @export_group("shooting params")
@@ -38,8 +39,13 @@ func get_vertical_position(x_postition: float, delta: float):
 			return acosh(delta * x_postition * PI * 2 / amplitude) * y_direction
 		ProjectilePattern.TANH:
 			return tanh(delta * x_postition * PI * 2 / amplitude)
+		ProjectilePattern.VLAD:
+			return x_postition * tan(rotation) * delta
 		ProjectilePattern.LINEAR:
 			return 0
+
+func set_vlad_pattern():
+	pattern = ProjectilePattern.VLAD
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free()

@@ -2,7 +2,7 @@ extends Node
 
 class_name Wave
 
-@export_group("Enemy vonfigs")
+@export_group("Enemy configs")
 @export var devil_config : Resource
 @export var mummy_config: Resource
 @export var skeleton_config: Resource

@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="bullet hell"
+run/main_scene="uid://nbbtwmbbfeo6"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -26,6 +27,10 @@ folder_colors={
 "res://resources/": "purple",
 "res://scenes/": "green"
 }
+
+[global_group]
+
+player=""
 
 [input]
 

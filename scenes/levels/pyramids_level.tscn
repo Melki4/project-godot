@@ -1,3 +1,13 @@
 [gd_scene format=3 uid="uid://boftd2hl0oan0"]
 
+[ext_resource type="PackedScene" uid="uid://ijsgbthfjqh2" path="res://scenes/ui/scrolling_background.tscn" id="1_33jrj"]
+[ext_resource type="Texture2D" uid="uid://cqhetthyr1dki" path="res://Assets/Backgrounds/Skybox Pyramid outside.png" id="2_p73bu"]
+[ext_resource type="PackedScene" uid="uid://ccgm1nc5tqj1d" path="res://scenes/characters/player.tscn" id="3_p73bu"]
+
 [node name="PyramidsLevel" type="Node" unique_id=105969372]
+
+[node name="ScrollingBackground" parent="." unique_id=1850770961 instance=ExtResource("1_33jrj")]
+bg_image = ExtResource("2_p73bu")
+
+[node name="Player" parent="." unique_id=925551122 instance=ExtResource("3_p73bu")]
+position = Vector2(96, 379)
